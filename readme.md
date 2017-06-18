@@ -68,11 +68,12 @@ The following data models are in design, multiple databases to be utilized for b
   "lastlogin": "2016-08-01 17:03:40",
 	"enabled": true,
 	"sec-questions" : [
-             { "question1" : "Security question 1 goes here", "answer" : "Answer to security question 1 goes here, probably salted" },
-             { "question2" : "Security question 2 goes here", "answer" : "Answer to security question 2 goes here, probably salted" },
-             { "question3" : "Security question 3 goes here", "answer" : "Answer to security question 3 goes here, probably salted" }
-    ],
-    "sec-roles" : ["admin", "user", "shop-manager", "salesman"]
+    {
+      "question1" : "Security question 1 goes here",
+      "answer" : "Answer to security question 1 goes here, probably salted"
+    },
+  ],
+  "sec-roles" : ["admin", "user", "shop-manager", "salesman"]
 }
 ```
 
@@ -180,7 +181,7 @@ The following data models are in design, multiple databases to be utilized for b
      "transaction_id": "2312213312XXXTD"
    },
 
-   "products": {
+   "products": [
      {
         "quantity": 2,
         "sku":"111445GB3",
@@ -188,7 +189,7 @@ The following data models are in design, multiple databases to be utilized for b
         "unit_cost":1000,
         "currency":"USD"
       }
-   }
+   ]
  }
  ```
 
