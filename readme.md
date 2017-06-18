@@ -7,10 +7,10 @@ A proof of concept Ecommerce site written in Node.js running on Docker
 This application collection is best served with [Docker](https://www.docker.com/)
 
 ```bash
-docker build -t node-ecommerce-poc-account ./account-api
+docker build -t node-ecommerce-poc-account-api ./account-api
 docker run -d -p 3001:3000 --name=node-ecommerce-poc-account-api node-ecommerce-poc-account-api
 
-docker build -t node-ecommerce-poc-product ./product-api
+docker build -t node-ecommerce-poc-product-api ./product-api
 docker run -d -p 3002:3000 --name=node-ecommerce-poc-product-api node-ecommerce-poc-product-api
 
 docker build -t node-ecommerce-poc-order-api ./order-api
