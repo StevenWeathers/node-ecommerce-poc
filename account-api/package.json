@@ -1,5 +1,5 @@
 {
-  "name": "ecommerce-poc-cart",
+  "name": "ecommerce-poc-account-api",
   "version": "1.0.0",
   "main": "src/server.js",
   "author": "Steven Weathers",
@@ -7,11 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "handlebars": "4.0.10",
     "hapi": "16.4.3",
-    "hoek": "4.1.1",
-    "wreck": "12.2.2",
-    "vision": "4.1.1"
+    "wreck": "12.2.2"
   },
   "scripts": {
     "start": "node src/server.js"

@@ -1,24 +1,74 @@
-#accountdb
-accountweb:
-  build: ./account
-  ports:
-    - "3001:3000"
-#productdb
-productweb:
-  build: ./product
-  ports:
-    - "3002:3000"
-#cartdb
-cartweb:
-  build: ./cart
-  ports:
-    - "3003:3000"
-#orderdb
-checkoutweb:
-  build: ./checkout
-  ports:
-    - "3004:3000"
-adminweb:
-  build: ./admin
-  ports:
-    - "3005:3000"
+version: "3.1"
+
+services:
+  storefrontweb:
+    build: ./storefront
+    ports:
+      - "3000:3000"
+    depends_on:
+      - accountapi
+      - productapi
+      - orderapi
+    networks:
+      - skynet
+  adminweb:
+    build: ./admin
+    ports:
+      - "3001:3000"
+    depends_on:
+      - accountapi
+      - productapi
+      - orderapi
+    networks:
+      - skynet
+  accountdb:
+    image: mongo
+    networks:
+      - skynet
+  sessiondb:
+    image: "redis:alpine"
+    networks:
+      - skynet
+  accountapi:
+    build: ./account-api
+    ports:
+      - "3002:3000"
+    depends_on:
+      - sessiondb
+      - accountdb
+    networks:
+      - skynet
+  productdb:
+      image: mongo
+      networks:
+      - skynet
+  productapi:
+    build: ./product-api
+    ports:
+      - "3003:3000"
+    depends_on:
+      - productdb
+    networks:
+      - skynet
+  cartdb:
+    image: "redis:alpine"
+    networks:
+      - skynet
+  orderdb:
+    image: postgres:alpine
+    networks:
+      - skynet
+  orderapi:
+    build: ./order-api
+    ports:
+      - "3004:3000"
+    depends_on:
+      - cartdb
+      - orderdb
+      - accountapi
+      - productapi
+    networks:
+      - skynet
+networks:
+  skynet:
+    driver: bridge

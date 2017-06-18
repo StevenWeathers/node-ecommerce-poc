@@ -7,20 +7,20 @@ A proof of concept Ecommerce site written in Node.js running on Docker
 This application collection is best served with [Docker](https://www.docker.com/)
 
 ```bash
-docker build -t node-ecommerce-poc-account ./account
-docker run -d -p 3001:3000 --name=node-ecommerce-poc-account node-ecommerce-poc-account
+docker build -t node-ecommerce-poc-account ./account-api
+docker run -d -p 3001:3000 --name=node-ecommerce-poc-account-api node-ecommerce-poc-account-api
 
-docker build -t node-ecommerce-poc-product ./product
-docker run -d -p 3002:3000 --name=node-ecommerce-poc-product node-ecommerce-poc-product
+docker build -t node-ecommerce-poc-product ./product-api
+docker run -d -p 3002:3000 --name=node-ecommerce-poc-product-api node-ecommerce-poc-product-api
 
-docker build -t node-ecommerce-poc-cart ./cart
-docker run -d -p 3003:3000 --name=node-ecommerce-poc-cart node-ecommerce-poc-cart
-
-docker build -t node-ecommerce-poc-checkout ./checkout
-docker run -d -p 3004:3000 --name=node-ecommerce-poc-checkout node-ecommerce-poc-checkout
+docker build -t node-ecommerce-poc-order-api ./order-api
+docker run -d -p 3003:3000 --name=node-ecommerce-poc-order-api node-ecommerce-poc-order-api
 
 docker build -t node-ecommerce-poc-admin ./admin
 docker run -d -p 3005:3000 --name=node-ecommerce-poc-admin node-ecommerce-poc-admin
+
+docker build -t node-ecommerce-poc-storefront ./storefront
+docker run -d -p 3005:3000 --name=node-ecommerce-poc-storefront node-ecommerce-poc-storefront
 ```
 
 What about [Docker Compose](https://docs.docker.com/compose/)?
@@ -40,7 +40,7 @@ Project | License
 
 The following data models are in design, multiple databases to be utilized for best fit.
 
-### User Model (Document Store such as MongoDB/Couchbase or Key/Value Store such as Redis/RocksDB)
+### User Model (MongoDB)
 
 ```json
 {
@@ -76,7 +76,7 @@ The following data models are in design, multiple databases to be utilized for b
 }
 ```
 
-### Session Model (Key/Value Store such as Redis/RocksDB)
+### Session Model (Redis)
 
 ```json
 {
@@ -97,7 +97,7 @@ The following data models are in design, multiple databases to be utilized for b
  }
  ```
 
-### Product Model (Document Store such as MongoDB/Couchbase or ColumnStore such as Cassandra)
+### Product Model (MongoDB)
 
 ```json
 {
@@ -125,7 +125,7 @@ The following data models are in design, multiple databases to be utilized for b
 }
 ```
 
-### Cart Model (Key/Value Store such as Redis/RocksDB)
+### Cart Model (Redis)
 
 ```json
 {
@@ -157,7 +157,7 @@ The following data models are in design, multiple databases to be utilized for b
 	HINCRBY cart_1 product_28 2
  ```
 
- ### Order Model (Relational such as MariaDB/Postgres)
+ ### Order Model (Postgres)
 
  ```json
  {

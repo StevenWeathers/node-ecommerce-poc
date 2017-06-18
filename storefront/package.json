@@ -1,5 +1,5 @@
 {
-  "name": "ecommerce-poc-checkout",
+  "name": "ecommerce-poc-storefront",
   "version": "1.0.0",
   "main": "src/server.js",
   "author": "Steven Weathers",
