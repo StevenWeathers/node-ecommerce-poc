@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce-poc-account",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "author": "Steven Weathers",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "handlebars": "4.0.10",
+    "hapi": "16.4.3",
+    "hoek": "4.1.1",
+    "wreck": "12.2.2",
+    "vision": "4.1.1"
+  },
+  "scripts": {
+    "start": "node src/server.js"
+  }
+}

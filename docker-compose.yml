@@ -1,0 +1,24 @@
+#accountdb
+accountweb:
+  build: ./account
+  ports:
+    - "3001:3000"
+#productdb
+productweb:
+  build: ./product
+  ports:
+    - "3002:3000"
+#cartdb
+cartweb:
+  build: ./cart
+  ports:
+    - "3003:3000"
+#orderdb
+checkoutweb:
+  build: ./checkout
+  ports:
+    - "3004:3000"
+adminweb:
+  build: ./admin
+  ports:
+    - "3005:3000"
