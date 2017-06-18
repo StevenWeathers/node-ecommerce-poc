@@ -45,27 +45,27 @@ The following data models are in design, multiple databases to be utilized for b
 ```json
 {
 	"userId": "generatedid",
-	"email",
+	"email": "",
 	"password": "salted",
-	"firstname",
-	"lastname",
+	"firstname": "",
+	"lastname": "",
 	"settings" : {},
 	"addresses": [
 		{
 			"type": "Residential or Business",
-			"companyName",
-			"address1",
-			"address2",
-			"city",
-			"state",
-			"zip",
-			"country",
-			"phone"
-			"phoneExt"
+			"companyName": "",
+			"address1": "",
+			"address2": "",
+			"city": "",
+			"state": "",
+			"zip": "",
+			"country": "",
+			"phone": "",
+			"phoneExt": ""
 		}
 	],
 	"createdate" : "2016-08-01 15:03:40",
-    "lastlogin": "2016-08-01 17:03:40",
+  "lastlogin": "2016-08-01 17:03:40",
 	"enabled": true,
 	"sec-questions" : [
              { "question1" : "Security question 1 goes here", "answer" : "Answer to security question 1 goes here, probably salted" },
@@ -80,10 +80,10 @@ The following data models are in design, multiple databases to be utilized for b
 
 ```json
 {
-	userId: "",
-	sessionId: "",
-	createdate: "",
-	expiredate: ""
+	"userId": "",
+	"sessionId": "",
+	"createdate": "",
+	"expiredate": ""
 }
 ```
 
@@ -91,9 +91,9 @@ The following data models are in design, multiple databases to be utilized for b
 
 ```json
  {
-   title: "Mobiles containing a FM radio",
-   parent: "mobile",
-   path: "mobile/fm"
+   "title": "Mobiles containing a FM radio",
+   "parent": "mobile",
+   "path": "mobile/fm"
  }
  ```
 
@@ -101,26 +101,21 @@ The following data models are in design, multiple databases to be utilized for b
 
 ```json
 {
-  sku: "111445GB3",
-  title: "Simsong One mobile phone",
-  description: "The greatest Onedroid phone on the market .....",
+  "sku": "111445GB3",
+  "title": "Simsong One mobile phone",
+  "description": "The greatest Onedroid phone on the market .....",
 
-  manufacture_details: {
-    model_number: "A123X",
-    release_date: new ISODate("2012-05-17T08:14:15.656Z")
+  "shipping_details": {
+    "weight": 350,
+    "width": 10,
+    "height": 10,
+    "depth": 1
   },
 
-  shipping_details: {
-    weight: 350,
-    width: 10,
-    height: 10,
-    depth: 1
-  },
+  "quantity": 99,
 
-  quantity: 99,
-
-  pricing: {
-    price: 1000
+  "pricing": {
+    "price": 1000
   }
 }
 ```
@@ -129,11 +124,11 @@ The following data models are in design, multiple databases to be utilized for b
 
 ```json
 {
-   sessionId: "the_users_session_id",
-   products: [
+   "sessionId": "the_users_session_id",
+   "products": [
     {
-      sku: "111445GB3",
-      quantity: 1
+      "sku": "111445GB3",
+      "quantity": 1
     }
    ]
  }
@@ -161,54 +156,58 @@ The following data models are in design, multiple databases to be utilized for b
 
  ```json
  {
-   created_on: new ISODate("2012-05-17T08:14:15.656Z"),
+   "created_on": "2016-08-01 15:03:40",
 
-   shipping: {
-     customer: "Peter P Peterson",
-     address: "Longroad 1343",
-     city: "Peterburg",
-     region: "",
-     state: "PE",
-     country: "Peteonia",
-     delivery_notes: "Leave at the gate",
+   "shipping": {
+     "customer": "Peter P Peterson",
+     "address": "Longroad 1343",
+     "city": "Peterburg",
+     "region": "",
+     "state": "PE",
+     "country": "Peteonia",
+     "delivery_notes": "Leave at the gate",
 
-     tracking: {
-       company: "ups",
-       tracking_number: "22122X211SD",
-       status: "ontruck",
-       estimated_delivery: new ISODate("2012-05-17T08:14:15.656Z")
+     "tracking": {
+       "company": "ups",
+       "tracking_number": "22122X211SD",
+       "status": "ontruck",
+       "estimated_delivery": "2016-08-01 15:03:40",
      },
    },
 
-   payment: {
-     method: "visa",
-     transaction_id: "2312213312XXXTD"
-   }
+   "payment": {
+     "method": "visa",
+     "transaction_id": "2312213312XXXTD"
+   },
 
-   products: {
+   "products": {
      {
-        quantity: 2,
-        sku:"111445GB3",
-        title: "Simsong mobile phone",
-        unit_cost:1000,
-        currency:"USDA"
+        "quantity": 2,
+        "sku":"111445GB3",
+        "title": "Simsong mobile phone",
+        "unit_cost":1000,
+        "currency":"USD"
       }
    }
  }
  ```
 
-## UI Considerations
+## Considerations
 
 1. Choose a css/html framework (Foundation, Boostrap etc.)
-1. Choose a singlepage app framework (For Checkout experience), e.g. React/Angular
+1. Write ES6 native javascript and transpile with Babel
+1. Choose a template language (currently handlebars), perhaps Marko, React, Polymer or something else?
+   1. Plan for 1 page checkout experience with chosen template language/framework
+1. Build the APIs with flexibility using GraphQL on all endpoints
 
 ## Strech Goals once the above is all stable and fully featured
 1. Add payment processing via stripe (configured for dev by default)
 1. Elastic search for searching products/categories whatever
-  1. Logstash/Kibana for rest of ELK stack
+   1. Logstash/Kibana for rest of ELK stack
 1. InfluxDB/Grafana gather pretty metrics
 1. Prediction.io for recommendations/machine learning
 1. A/B testing of some sort (perhaps Sixpack by seatgeek?)
 1. Dynamic Image scaling application (hey i've got a poc for that!)
-  1. Utilize cdn for cached scaled image (AWS Cloudfront)
+   1. Utilize cdn for cached scaled image (AWS Cloudfront)
 1. Build Native iOS/Android (ReactNative perhaps?) apps to consume all those lovely APIs
+1. Setup an API management like Kong
