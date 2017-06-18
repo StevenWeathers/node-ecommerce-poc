@@ -196,3 +196,19 @@ The following data models are in design, multiple databases to be utilized for b
    }
  }
  ```
+
+## UI Considerations
+
+1. Choose a css/html framework (Foundation, Boostrap etc.)
+1. Choose a singlepage app framework (For Checkout experience), e.g. React/Angular
+
+## Strech Goals once the above is all stable and fully featured
+1. Add payment processing via stripe (configured for dev by default)
+1. Elastic search for searching products/categories whatever
+  1. Logstash/Kibana for rest of ELK stack
+1. InfluxDB/Grafana gather pretty metrics
+1. Prediction.io for recommendations/machine learning
+1. A/B testing of some sort (perhaps Sixpack by seatgeek?)
+1. Dynamic Image scaling application (hey i've got a poc for that!)
+  1. Utilize cdn for cached scaled image (AWS Cloudfront)
+1. Build Native iOS/Android (ReactNative perhaps?) apps to consume all those lovely APIs
