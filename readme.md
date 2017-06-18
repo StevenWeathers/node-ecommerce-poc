@@ -33,7 +33,10 @@ docker-compose up --build
 Project | License
 --- | ---
 [Docker](https://github.com/docker/docker) | [Apache-2.0](https://github.com/docker/docker/blob/master/LICENSE)
-[Node]() | [BSD-3-Clause]()
+[Node](https://nodejs.org/en/) | [BSD-3-Clause](https://github.com/nodejs/node/blob/master/LICENSE)
+[Redis](https://redis.io/) | [BSD-3-Clause](https://redis.io/topics/license)
+[Mongo](https://www.mongodb.com/) | [AGPL v3.0](https://www.mongodb.com/community/licensing)
+[Postgres](https://www.postgresql.org/) | [PostgreSQL License,](https://www.postgresql.org/about/licence/)
 
 
 ## Data Models
