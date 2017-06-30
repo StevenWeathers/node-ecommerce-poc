@@ -210,7 +210,7 @@ The following data models are in design, multiple databases to be utilized for b
    1. Logstash/Kibana for rest of ELK stack
 1. InfluxDB/Grafana gather pretty metrics
 1. Prediction.io for recommendations/machine learning
-1. A/B testing of some sort (perhaps Sixpack by seatgeek?)
+1. A/B testing of some sort (perhaps [Sixpack](http://sixpack.seatgeek.com/) by seatgeek or [Study](https://github.com/dollarshaveclub/study) by dollarshaveclub)
 1. Dynamic Image scaling application (hey i've got a poc for that!)
    1. Utilize cdn for cached scaled image (AWS Cloudfront)
 1. Build Native iOS/Android (ReactNative perhaps?) apps to consume all those lovely APIs
