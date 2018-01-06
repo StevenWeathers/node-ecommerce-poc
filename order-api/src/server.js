@@ -8,7 +8,7 @@ const server = new Hapi.Server({
 
 const handler = (request, h) => {
     return "Order API";
-}
+};
 
 server.route({
     method: 'GET',
@@ -22,5 +22,5 @@ server
         console.log(`Server running at: ${server.info.uri}`);
     }) // if needed
     .catch(err => {
-        console.log(err)
+        console.log(err);
     });

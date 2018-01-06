@@ -20,7 +20,7 @@ server.register({
 
     const handler = (request, h) => {
         return h.view("home");
-    }
+    };
 
     server.route({
         method: 'GET',
@@ -34,6 +34,6 @@ server.register({
             console.log(`Server running at: ${server.info.uri}`);
         }) // if needed
         .catch(err => {
-            console.log(err)
+            console.log(err);
         });
 });
