@@ -37,6 +37,8 @@ Project | License
 [Redis](https://redis.io/) | [BSD-3-Clause](https://redis.io/topics/license)
 [Mongo](https://www.mongodb.com/) | [AGPL v3.0](https://www.mongodb.com/community/licensing)
 [Postgres](https://www.postgresql.org/) | [PostgreSQL License,](https://www.postgresql.org/about/licence/)
+[React](https://reactjs.org/) | [MIT License](https://github.com/facebook/react/blob/master/LICENSE)
+[GraphQL](http://graphql.org/) | [MIT License](https://github.com/graphql/graphql-js/blob/master/LICENSE)
 
 
 ## Data Models
@@ -91,7 +93,7 @@ The following data models are in design, multiple databases to be utilized for b
 }
 ```
 
-### Cateogry Model (Document Store such as MongoDB/Couchbase or ColumnStore such as Cassandra)
+### Cateogry Model (MongoDB)
 
 ```json
  {
@@ -199,9 +201,10 @@ The following data models are in design, multiple databases to be utilized for b
 ## Considerations
 
 1. Choose a css/html framework (Foundation, Boostrap etc.)
-1. Write ES6 native javascript and transpile with Babel
-1. Choose a template language (currently handlebars), perhaps Marko, React, Polymer or something else?
+1. Write ES6/ES7 native javascript and transpile with Babel
+1. Choose a template language (currently handlebars), perhaps Marko, React, Polymer or something else for Storefront UI
    1. Plan for 1 page checkout experience with chosen template language/framework
+1. Utilize React for Admin UI (all client side rendering)
 1. Build the APIs with flexibility using GraphQL on all endpoints
 
 ## Strech Goals once the above is all stable and fully featured
@@ -213,5 +216,5 @@ The following data models are in design, multiple databases to be utilized for b
 1. A/B testing of some sort (perhaps [Sixpack](http://sixpack.seatgeek.com/) by seatgeek or [Study](https://github.com/dollarshaveclub/study) by dollarshaveclub)
 1. Dynamic Image scaling application (hey i've got a poc for that!)
    1. Utilize cdn for cached scaled image (AWS Cloudfront)
-1. Build Native iOS/Android (ReactNative perhaps?) apps to consume all those lovely APIs
 1. Setup an API management like Kong
+1. Build Native iOS/Android (ReactNative perhaps?) apps to consume all those lovely APIs
