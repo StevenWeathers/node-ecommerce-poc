@@ -2,19 +2,14 @@
 
 const Path = require('path');
 const Hapi = require('hapi');
-const Hoek = require('hoek');
 const Wreck = require('wreck');
-const server = new Hapi.Server();
-
-server.connection({
+const server = new Hapi.Server({
     port: 3000
 });
 
-
-server.register(require('vision'), (err) => {
-
-    Hoek.assert(!err, err);
-
+server.register({
+    plugin: require('vision')
+}).then(() => {
     server.views({
         engines: {
             hbs: require('handlebars')
@@ -23,19 +18,22 @@ server.register(require('vision'), (err) => {
         path: 'views'
     });
 
+    const handler = (request, h) => {
+        return h.view("home");
+    }
+
     server.route({
         method: 'GET',
-        path:'/',
-        handler: function (request, reply) {
-            return reply.view("home");
-        }
+        path: '/',
+        handler
     });
 
-    server.start((err) => {
-        if (err) {
-            throw err;
-        }
-
-        console.log(`Server running at: ${server.info.uri}`);
-    });
+    server
+        .start()
+        .then(() => {
+            console.log(`Server running at: ${server.info.uri}`);
+        }) // if needed
+        .catch(err => {
+            console.log(err)
+        });
 });

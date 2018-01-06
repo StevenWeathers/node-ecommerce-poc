@@ -2,24 +2,25 @@
 
 const Hapi = require('hapi');
 const Wreck = require('wreck');
-const server = new Hapi.Server();
-
-server.connection({
+const server = new Hapi.Server({
     port: 3000
 });
 
+const handler = (request, h) => {
+    return "Account API";
+}
+
 server.route({
     method: 'GET',
-    path:'/',
-    handler: function (request, reply) {
-        return reply("Account API");
-    }
+    path: '/',
+    handler
 });
 
-server.start((err) => {
-    if (err) {
-        throw err;
-    }
-
-    console.log(`Server running at: ${server.info.uri}`);
-});
+server
+    .start()
+    .then(() => {
+        console.log(`Server running at: ${server.info.uri}`);
+    }) // if needed
+    .catch(err => {
+        console.log(err)
+    });
